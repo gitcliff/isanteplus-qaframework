@@ -41,7 +41,7 @@ public abstract class Page {
 	private final String contextUrl;
 	
 	private final String serverUrl;
-
+	
 	public WebDriver getDriver() {
 		return this.driver;
 	}
@@ -73,7 +73,6 @@ public abstract class Page {
 			} else {
 				return "complete".equals(readyState);
 			}
-			
 		}
 	};
 	
@@ -130,11 +129,12 @@ public abstract class Page {
 	
 	public Page waitForPage() {
 		waiter.until(pageReady);
-        if (getPageRejectUrl() != null) {
-            if (driver.getCurrentUrl().contains(getPageRejectUrl())) {
-                throw new PageRejectedException("Page url " + driver.getCurrentUrl() + " contains '" + getPageRejectUrl() + "', which is not allowed");
-            }
-        }
+		if (getPageRejectUrl() != null) {
+			if (driver.getCurrentUrl().contains(getPageRejectUrl())) {
+				throw new PageRejectedException("Page url " + driver.getCurrentUrl() + " contains '" + getPageRejectUrl()
+				        + "', which is not allowed");
+			}
+		}
 		return this;
 	}
 	
@@ -264,7 +264,7 @@ public abstract class Page {
 	}
 	
 	public List<WebElement> findElements(By by) {
-		waiter.until(ExpectedConditions.presenceOfElementLocated(by));	
+		waiter.until(ExpectedConditions.presenceOfElementLocated(by));
 		return driver.findElements(by);
 	}
 	
@@ -301,36 +301,36 @@ public abstract class Page {
 	public By byFromHref(String href) {
 		return By.xpath("//a[@href='" + href + "']");
 	}
-
+	
 	public void waitForFocusById(final String id) {
-        waiter.until(new ExpectedCondition<Boolean>() {
-
-            @Override
-            public Boolean apply(WebDriver driver) {
-                return hasFocus(id);
-            }
-        });
-    }
-
-    public void waitForFocusByCss(final String tag, final String attr, final String value) {
-        waiter.until(new ExpectedCondition<Boolean>() {
-
-            @Override
-            public Boolean apply(WebDriver driver) {
-                return hasFocus(tag, attr, value);
-            }
-        });
-    }
-
+		waiter.until(new ExpectedCondition<Boolean>() {
+			
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return hasFocus(id);
+			}
+		});
+	}
+	
+	public void waitForFocusByCss(final String tag, final String attr, final String value) {
+		waiter.until(new ExpectedCondition<Boolean>() {
+			
+			@Override
+			public Boolean apply(WebDriver driver) {
+				return hasFocus(tag, attr, value);
+			}
+		});
+	}
+	
 	boolean hasFocus(String id) {
-        return (Boolean) ((JavascriptExecutor) driver).executeScript("return jQuery('#" + id + "').is(':focus')",
-                new Object[]{});
-    }
-
+		return (Boolean) ((JavascriptExecutor) driver).executeScript("return jQuery('#" + id + "').is(':focus')",
+		    new Object[] {});
+	}
+	
 	boolean hasFocus(String tag, String attr, String value) {
-        return (Boolean) ((JavascriptExecutor) driver)
-                .executeScript("return jQuery('" + tag + "[" + attr + "=" + value + "]').is(':focus')", new Object[]{});
-    }
+		return (Boolean) ((JavascriptExecutor) driver)
+		        .executeScript("return jQuery('" + tag + "[" + attr + "=" + value + "]').is(':focus')", new Object[] {});
+	}
 	
 	public void waitForJsVariable(final String varName) {
 		waiter.until(new ExpectedCondition<Boolean>() {
@@ -380,8 +380,8 @@ public abstract class Page {
 		try {
 			Alert alert = driver.switchTo().alert();
 			booelan = true;
-		} catch (Exception e) {
 		}
+		catch (Exception e) {}
 		return booelan;
 	}
 	
@@ -392,17 +392,17 @@ public abstract class Page {
 	public void waitForTextToBePresentInElement(By by, String text) {
 		waiter.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
 	}
-
+	
 	public void waitForElementWithSpecifiedMaxTimeout(By by, long secs) {
-        WebDriverWait waiter = new WebDriverWait(driver, secs);
-        waiter.until(pageReady);
-        waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
-    }
-
+		WebDriverWait waiter = new WebDriverWait(driver, secs);
+		waiter.until(pageReady);
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
+	}
+	
 	public Boolean containsText(String text) {
 		return driver.getPageSource().contains(text);
 	}
-
+	
 	public String getClass(By by) {
 		return findElement(by).getAttribute("class");
 	}
@@ -417,29 +417,31 @@ public abstract class Page {
 		}
 		return findElementWithoutWait(by).getAttribute("value");
 	}
-
+	
 	public List<String> getValidationErrors() {
-        List<String> validationErrors = new ArrayList<String>();
-        for (WebElement webElement : driver.findElements(By.className("field-error"))) {
-            if (StringUtils.isNotBlank(webElement.getText())) {
-                validationErrors.add(webElement.getText());
-            }        
-        }
-        for(WebElement webElement: driver.findElements(By.className("error"))){
-            if (StringUtils.isNotBlank(webElement.getText())) {
-                validationErrors.add(webElement.getText());
-            }
-        }
-        return validationErrors;
-    }
-
+		List<String> validationErrors = new ArrayList<String>();
+		for (WebElement webElement : driver.findElements(By.className("field-error"))) {
+			if (StringUtils.isNotBlank(webElement.getText())) {
+				validationErrors.add(webElement.getText());
+			}
+		}
+		for (WebElement webElement : driver.findElements(By.className("error"))) {
+			if (StringUtils.isNotBlank(webElement.getText())) {
+				validationErrors.add(webElement.getText());
+			}
+		}
+		return validationErrors;
+	}
+	
 	public String queryJsForAttribute(String cssHandle, String attribute) {
-        return (String) ((JavascriptExecutor) driver).executeScript(String.format("return document.querySelector('%s').%s", cssHandle, attribute));
-    }
-
-    public void setAttributeWithJs(String cssHandle, String attribute, String value) {
-        ((JavascriptExecutor) driver).executeScript(String.format("document.querySelector('%s').%s = '%s'", cssHandle, attribute, value));
-    }
+		return (String) ((JavascriptExecutor) driver)
+		        .executeScript(String.format("return document.querySelector('%s').%s", cssHandle, attribute));
+	}
+	
+	public void setAttributeWithJs(String cssHandle, String attribute, String value) {
+		((JavascriptExecutor) driver)
+		        .executeScript(String.format("document.querySelector('%s').%s = '%s'", cssHandle, attribute, value));
+	}
 	
 	public String getStyle(By by) {
 		return findElement(by).getAttribute("style");
