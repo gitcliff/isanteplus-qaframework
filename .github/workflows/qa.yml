@@ -13,11 +13,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Checkout openelis qaframework
+      - name: Checkout isanteplus qaframework
         uses: actions/checkout@v2
         with:
           repository: ${{github.repository}}
-      - name: Run and Publish Openelis QA
+      - name: Run isanteplus QA and Publish Test results
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           mvn clean install -Dcucumber.filter.tags='@null' 
