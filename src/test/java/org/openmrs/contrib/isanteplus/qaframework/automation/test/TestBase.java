@@ -59,8 +59,7 @@ public class TestBase {
 		}
 		catch (Exception e) {
 			fail(e.getMessage());
-		}
-		
+		}	
 	}
 	
 	@Before

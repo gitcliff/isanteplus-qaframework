@@ -17,8 +17,8 @@ import io.cucumber.java.en.When;
 public class LoginSteps extends TestBase {
 	
 	private LoginPage loginPage;
-
-	private HomePage homePage ;
+	
+	private HomePage homePage;
 	
 	@After(RunTest.HOOK.LOGIN)
 	public void destroy() {
@@ -44,7 +44,7 @@ public class LoginSteps extends TestBase {
 	public void anyPassword(String password) {
 		loginPage.enterPassword(password);
 	}
-
+	
 	@And("User Selects {string} Login Location")
 	public void selectLoginLocation(String loginLocation) {
 		if ("setUPLocation".equals(loginLocation)) {
@@ -54,12 +54,13 @@ public class LoginSteps extends TestBase {
 	
 	@And("User Logs in")
 	public void userLogsIn() {
-		loginPage.clickLoginButton();;
+		loginPage.clickLoginButton();
+		;
 	}
 	
 	@Then("System Evaluates Login {string}")
 	public void evaluateLogin(String status) {
-		 homePage = new HomePage(loginPage);
+		homePage = new HomePage(loginPage);
 		if (status.trim().endsWith("true")) {
 			assertTrue(homePage.hasLogOutLink());
 		} else if (status.trim().endsWith("false")) {
