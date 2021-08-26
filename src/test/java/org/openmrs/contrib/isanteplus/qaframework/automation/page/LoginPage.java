@@ -1,6 +1,11 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation.page;
 
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.commons.io.IOUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -67,11 +72,41 @@ public class LoginPage extends Page {
         go();
         enterUsername(this.username);
         enterPassword(this.password);
+        selectLocation();
         clickLoginButton();
+        return new HomePage(this);
+    }
+
+    public HomePage login(String user, String password ,String locationName) {
+        String value = findElement(By.id(locationName)).getAttribute("value");
+        postLoginForm(user, password, Integer.parseInt(value));
         return new HomePage(this);
     }
     
     public Boolean hasLoginButton() {
         return hasElement(BUTTON_LOGIN);
     }
+
+    private void postLoginForm(String user, String password, Integer location) {
+        String postJs;
+        InputStream in = null;
+        try {
+            in = getClass().getResourceAsStream("/post.js");
+            postJs = IOUtils.toString(in);
+            in.close();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            IOUtils.closeQuietly(in);
+        }
+
+        String post = postJs + " post('" + getContextPageUrl() + "', {username: '" + user + "', password: '" + password;
+        if (location != null) {
+            post += "', sessionLocation: " + location + "});";
+        } else {
+            post += "});";
+        }
+        ((JavascriptExecutor) driver).executeScript(post);
+    }
+
 }

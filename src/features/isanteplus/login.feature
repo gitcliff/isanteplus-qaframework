@@ -17,3 +17,8 @@ Feature: User Login
       | wrongUser | wrongPas  | noLocation   | false  |
       | admin     | Admin123  | setUPLocation| true   |
 
+ @login
+ Scenario: Logout
+    And User Logs in into the System
+    When Once inside the application, click the `Logout` link
+    Then The user is logged out of iSantePlus and redirected to the login page

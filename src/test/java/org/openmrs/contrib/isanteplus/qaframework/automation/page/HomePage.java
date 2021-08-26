@@ -21,5 +21,8 @@ public class HomePage extends Page {
 	public Boolean hasLogOutLink() {
 		return hasElement(LINK_LOGOUT);
 	}
-	
+
+	public void clickLogout() {
+		clickOn(LINK_LOGOUT);
+	}
 }

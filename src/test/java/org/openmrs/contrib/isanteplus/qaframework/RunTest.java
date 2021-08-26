@@ -14,6 +14,8 @@ import org.junit.runner.RunWith;
 public class RunTest {
 	
 	public class HOOK {	
-		public static final String LOGIN = "@login";		  
+		public static final String LOGIN = "@login";
+                
+                public static final String REGISTRATION = "@register";
 	}
 }
