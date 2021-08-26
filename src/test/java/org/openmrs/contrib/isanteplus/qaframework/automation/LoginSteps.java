@@ -55,7 +55,6 @@ public class LoginSteps extends TestBase {
 	@And("User Logs in")
 	public void userLogsIn() {
 		loginPage.clickLoginButton();
-		;
 	}
 	
 	@Then("System Evaluates Login {string}")
@@ -66,5 +65,20 @@ public class LoginSteps extends TestBase {
 		} else if (status.trim().endsWith("false")) {
 			assertTrue(loginPage.hasLoginButton());
 		}
+	}
+
+	@And("User Logs in into the System")
+	public void login(){
+		homePage = loginPage.goToHomePage();
+	}
+
+	@When("Once inside the application, click the `Logout` link")
+	public void logout(){
+		homePage.clickLogout();
+	}
+
+	@Then("The user is logged out of iSantePlus and redirected to the login page")
+	public void redirectedToLoginPage(){
+		assertTrue(loginPage.hasLoginButton());
 	}
 }
