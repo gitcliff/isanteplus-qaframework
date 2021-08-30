@@ -6,7 +6,7 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
 
 ## Installing dependencies wthout running tests
 
-    mvn clean install -Dcucumber.filter.tags='@null'
+    mvn clean install -DskipTests=true
 
 ## Configuration
 - Set Your test configurations in [src/test/resources/test.properties](./src/test/resources/test.properties)
