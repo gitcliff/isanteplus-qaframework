@@ -19,6 +19,6 @@ Feature: User Login
 
  @login
  Scenario: Logout
-    And User Logs in into the System
-    When Once inside the application, click the `Logout` link
-    Then The user is logged out of iSantePlus and redirected to the login page
+  And User Logs in into the System
+  When Once inside the application, click the `Logout` link
+  Then The user is logged out of iSantePlus and redirected to the login page
