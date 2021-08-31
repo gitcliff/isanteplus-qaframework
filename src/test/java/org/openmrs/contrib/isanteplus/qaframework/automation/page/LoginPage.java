@@ -76,37 +76,8 @@ public class LoginPage extends Page {
         clickLoginButton();
         return new HomePage(this);
     }
-
-    public HomePage login(String user, String password ,String locationName) {
-        String value = findElement(By.id(locationName)).getAttribute("value");
-        postLoginForm(user, password, Integer.parseInt(value));
-        return new HomePage(this);
-    }
     
     public Boolean hasLoginButton() {
         return hasElement(BUTTON_LOGIN);
     }
-
-    private void postLoginForm(String user, String password, Integer location) {
-        String postJs;
-        InputStream in = null;
-        try {
-            in = getClass().getResourceAsStream("/post.js");
-            postJs = IOUtils.toString(in);
-            in.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } finally {
-            IOUtils.closeQuietly(in);
-        }
-
-        String post = postJs + " post('" + getContextPageUrl() + "', {username: '" + user + "', password: '" + password;
-        if (location != null) {
-            post += "', sessionLocation: " + location + "});";
-        } else {
-            post += "});";
-        }
-        ((JavascriptExecutor) driver).executeScript(post);
-    }
-
 }

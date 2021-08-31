@@ -66,19 +66,19 @@ public class LoginSteps extends TestBase {
 			assertTrue(loginPage.hasLoginButton());
 		}
 	}
-
+	
 	@And("User Logs in into the System")
-	public void login(){
+	public void login() {
 		homePage = loginPage.goToHomePage();
 	}
-
+	
 	@When("Once inside the application, click the `Logout` link")
-	public void logout(){
+	public void logout() {
 		homePage.clickLogout();
 	}
-
+	
 	@Then("The user is logged out of iSantePlus and redirected to the login page")
-	public void redirectedToLoginPage(){
+	public void redirectedToLoginPage() {
 		assertTrue(loginPage.hasLoginButton());
 	}
 }

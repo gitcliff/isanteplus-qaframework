@@ -33,5 +33,6 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
 | Test Feature      |Filter Tag     |
 |:-----------------:|:-------------:|
 | Login             | @login        | 
+| Adding a Patient  | @register     |
 
        
