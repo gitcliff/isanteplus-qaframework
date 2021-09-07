@@ -4,7 +4,7 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
 
 [![ISANTEPLUS QA](https://github.com/IsantePlus/isanteplus-qaframework/actions/workflows/qa.yml/badge.svg)](https://github.com/IsantePlus/isanteplus-qaframework/actions/workflows/qa.yml)
 
-## Installing dependencies wthout running tests
+## Installing dependencies 
 
     mvn clean install -DskipTests=true
 
