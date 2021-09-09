@@ -1,7 +1,5 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation.test;
 
-import org.openmrs.contrib.isanteplus.qaframework.automation.page.Page;
-
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -9,7 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -22,6 +22,10 @@ import org.apache.commons.vfs2.VFS;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.HomePage;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.LoginPage;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.Page;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -47,7 +51,17 @@ public class TestBase {
 	
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
 	
+	protected String firstPatientIdentifier;
+	
+	protected By patientHeaderId = By.cssSelector("div.identifiers span");
+	
+	protected TestProperties testProperties = TestProperties.instance();
+	
 	private static volatile boolean serverFailure = false;
+	
+	protected HomePage homePage;
+	
+	protected LoginPage loginPage;
 	
 	private WebDriver driver;
 	
@@ -162,6 +176,7 @@ public class TestBase {
 				}
 			}
 		}
+		
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY, chromedriverExecutablePath);
 		String chromedriverFilesDir = "target/chromedriverlogs";
 		try {
@@ -193,6 +208,25 @@ public class TestBase {
 		if (getWebDriver() != null) {
 			getWebDriver().quit();
 		}
+	}
+	
+	protected String trimPatientId(String id) {
+		id = id.replace("Recent", "");
+		if (id.indexOf("[") > 0) {
+			id = id.split("\\[")[0];
+		}
+		if (id.indexOf(" ") > 0) {
+			id = id.split(" ")[0];
+		}
+		return id;
+	}
+	
+	protected void matchPatientIds(String patientId) {
+		List<String> ids = new ArrayList<>();
+		driver.findElements(patientHeaderId).forEach(id-> {
+			ids.add(trimPatientId(id.getText()));
+		});
+		assertTrue(ids.contains(trimPatientId(patientId)));
 	}
 	
 	public String getCurrentDate() {
