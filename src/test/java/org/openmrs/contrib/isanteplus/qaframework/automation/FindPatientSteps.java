@@ -18,9 +18,9 @@ import io.cucumber.java.en.Then;
 
 public class FindPatientSteps extends TestBase {
 	
-	private ClinicianFacingPatientDashboardPage dashboardPage;
+	private ClinicianFacingPatientDashboardPage dashbaordPage;
 	
-	private FindPatientPage findPatientPage;
+	private  FindPatientPage findPatientPage;
 	
 	private LoginPage loginPage;
 	
@@ -35,7 +35,7 @@ public class FindPatientSteps extends TestBase {
 	public void destroy() {
 		quit();
 	}
-	
+
 	@Given("User logs in the system")
 	public void userVisitLoginPage() throws Exception {
 		homePage = loginPage.goToHomePage();
@@ -43,7 +43,7 @@ public class FindPatientSteps extends TestBase {
 	
 	@And("User clicks on Find Patient App")
 	public void clickOnFindPatientRecordApp() {
-		findPatientPage = (FindPatientPage) homePage.clickOnFindPatientRecordApp().waitForPage();
+		findPatientPage = homePage.clickOnFindPatientRecordApp();
 	}
 	
 	@And("User enters missing patient")
@@ -56,9 +56,9 @@ public class FindPatientSteps extends TestBase {
 		assertTrue(findPatientPage.containsText("No matching records found"));
 	}
 	
-	@And("User enters James Smith")
-	public void enterJohnSmith() {
-		findPatientPage.enterPatientName("James Smith");
+	@And("User enters moses mutesa")
+	public void enterPatientName() {
+		findPatientPage.enterPatientName("moses mutesa");
 	}
 	
 	@Then("Search Page returns patients")
@@ -66,10 +66,10 @@ public class FindPatientSteps extends TestBase {
 		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
 		assertNotNull(firstPatientIdentifier);
 	}
-	
+
 	@And("User clicks on first patient")
 	public void clickFirstPatient() {
-		dashboardPage = findPatientPage.clickOnFirstPatient();
+		findPatientPage.clickOnFirstPatient();
 	}
 	
 	@Then("System loads patient dashboard")

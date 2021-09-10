@@ -3,6 +3,8 @@ package org.openmrs.contrib.isanteplus.qaframework.automation.page;
 import org.openqa.selenium.By;
 
 public class FindPatientPage extends Page {
+	
+	private static final String PAGE_URL = "/coreapps/findpatient/findPatient.page?app=coreapps.findPatient";
 	private static final By PATIENT_SEARCH = By.id("patient-search");
 	private static final By PATIENT_ID_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tr:first-child td:first-child");	
 	private static final By PATIENT_NAME_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
@@ -38,10 +40,9 @@ public class FindPatientPage extends Page {
 		return findElement(PATIENT_NAME_SEARCH_RESULT).getText();
 	}
 	
-
 	@Override
 	public String getPageUrl() {
-		return "/coreapps/findpatient/findPatient.page";
+		return PAGE_URL;
 	}
 	
 }

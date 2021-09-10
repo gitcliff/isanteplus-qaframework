@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 public class HomePage extends Page {
 	
 	private RegisterPatientPage registerPatientPage;
+	
+	private FindPatientPage findPatientPage;
 
 	private final By LINK_LOGOUT = By.className("logout");
 
@@ -18,7 +20,7 @@ public class HomePage extends Page {
 	private static final By REPORT_APP_ID = By.id("reportingui-reports-homepagelink-reportingui-reports-homepagelink-extension");
 	private static final By DATA_MANAGEMENT = By.cssSelector("#coreapps-datamanagement-homepageLink-coreapps-datamanagement-homepageLink-extension");
 	private static final By CONFIGURE_METADATA = By.cssSelector("#org-openmrs-module-adminui-configuremetadata-homepageLink-org-openmrs-module-adminui-configuremetadata-homepageLink-extension");
-    private static final By SYSTEM_ADMINISTRATION = By.cssSelector("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension");
+     private static final By SYSTEM_ADMINISTRATION = By.cssSelector("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension");
 	
 	private final By APP_REGISTER_PATIENT = By.id(
 	    "referenceapplication-registrationapp-registerPatient-homepageLink-referenceapplication-registrationapp-registerPatient-homepageLink-extension");

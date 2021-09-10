@@ -22,8 +22,6 @@ import org.apache.commons.vfs2.VFS;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
-import org.openmrs.contrib.isanteplus.qaframework.automation.page.HomePage;
-import org.openmrs.contrib.isanteplus.qaframework.automation.page.LoginPage;
 import org.openmrs.contrib.isanteplus.qaframework.automation.page.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -55,13 +53,7 @@ public class TestBase {
 	
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	
-	protected TestProperties testProperties = TestProperties.instance();
-	
 	private static volatile boolean serverFailure = false;
-	
-	protected HomePage homePage;
-	
-	protected LoginPage loginPage;
 	
 	private WebDriver driver;
 	
