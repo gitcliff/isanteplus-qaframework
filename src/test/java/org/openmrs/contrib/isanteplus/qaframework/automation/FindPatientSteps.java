@@ -47,9 +47,9 @@ public class FindPatientSteps extends TestBase {
 		findPatientPage = homePage.clickOnSearchPatientRecord();
 	}
 	
-	@And("Enter First Name or Last Name in “Patient Search” box")
-	public void enterPatientName() {
-		findPatientPage.enterPatientName("moses mutesa");
+	@And("Enter First Name or Last Name in “Patient Search” box {string} patientSearch")
+	public void enterPatientName(String patientSearch) {
+		findPatientPage.enterPatientName(patientSearch);
 	}
 	
 	@Then("Identify patient in list")

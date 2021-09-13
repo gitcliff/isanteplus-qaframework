@@ -9,12 +9,14 @@ public class FindPatientPage extends Page {
 	private static final By PATIENT_ID_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tr:first-child td:first-child");	
 	private static final By PATIENT_NAME_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
 	
+	private String patientSearch;
+	
 	public FindPatientPage(Page page) {
 		super(page);
 	}
 
 	public void enterPatientName(String patientSearch) {
-		setTextToFieldNoEnter(PATIENT_SEARCH, patientSearch);
+		setText(PATIENT_SEARCH, patientSearch);
 	}
 
 	public  ClinicianFacingPatientDashboardPage clickOnFirstPatient() {
@@ -23,7 +25,7 @@ public class FindPatientPage extends Page {
 	}
 
 	public void search(String text) {
-		setTextToFieldNoEnter(PATIENT_SEARCH, text);
+		setText(PATIENT_SEARCH, text);
 	}
 
 	/**
