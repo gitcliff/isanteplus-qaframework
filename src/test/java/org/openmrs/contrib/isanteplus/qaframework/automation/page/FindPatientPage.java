@@ -33,11 +33,11 @@ public class FindPatientPage extends Page {
 	 */
 	public String getFirstPatientIdentifier() {
 		getFirstPatientName();
-		return findElement(PATIENT_ID_SEARCH_RESULT).getText();
+		return getText(PATIENT_ID_SEARCH_RESULT);
 	}
 
 	public String getFirstPatientName() {
-		return findElement(PATIENT_NAME_SEARCH_RESULT).getText();
+		return getText(PATIENT_NAME_SEARCH_RESULT);
 	}
 	
 	@Override
