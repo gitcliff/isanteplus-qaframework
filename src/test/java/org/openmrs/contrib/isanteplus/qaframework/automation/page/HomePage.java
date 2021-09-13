@@ -47,7 +47,7 @@ public class HomePage extends Page {
 		return new RegisterPatientPage(this);
 	}
 	
-	public FindPatientPage clickOnFindPatientRecordApp() {
+	public FindPatientPage clickOnSearchPatientRecord() {
 		clickOn(FIND_PATIENT_RECORD);
 		return new FindPatientPage(this);
 	}

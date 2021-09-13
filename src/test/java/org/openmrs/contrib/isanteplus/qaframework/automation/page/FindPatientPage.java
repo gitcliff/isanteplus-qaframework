@@ -13,8 +13,8 @@ public class FindPatientPage extends Page {
 		super(page);
 	}
 
-	public void enterPatientName(String patientName) {
-		setTextToFieldNoEnter(PATIENT_SEARCH, patientName);
+	public void enterPatientName(String patientSearch) {
+		setTextToFieldNoEnter(PATIENT_SEARCH, patientSearch);
 	}
 
 	public  ClinicianFacingPatientDashboardPage clickOnFirstPatient() {

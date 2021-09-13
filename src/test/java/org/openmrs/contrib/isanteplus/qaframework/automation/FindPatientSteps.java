@@ -1,7 +1,6 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.isanteplus.qaframework.RunTest;
 import org.openmrs.contrib.isanteplus.qaframework.automation.page.ClinicianFacingPatientDashboardPage;
@@ -26,6 +25,8 @@ public class FindPatientSteps extends TestBase {
 	
 	private HomePage homePage;
 	
+	protected String firstPatientIdentifier;
+	
 	@Before(RunTest.HOOK.FINDPATIENT)
 	public void setUp() {
 		loginPage = new LoginPage(getWebDriver());
@@ -41,40 +42,29 @@ public class FindPatientSteps extends TestBase {
 		homePage = loginPage.goToHomePage();
     }
 	
-	@And("User clicks on Find Patient App")
-	public void clickOnFindPatientRecordApp() {
-		findPatientPage = homePage.clickOnFindPatientRecordApp();
+	@And("From the home page click ‘rechercher dossier de patient")
+	public void clickOnSearchPatientRecord() {
+		findPatientPage = homePage.clickOnSearchPatientRecord();
 	}
 	
-	@And("User enters missing patient")
-	public void enterMissingPatient() {
-		findPatientPage.enterPatientName("MissingPatient");
-	}
-	
-	@Then("Search Page returns no patients")
-	public void noPatients() {
-		assertTrue(findPatientPage.containsText("No matching records found"));
-	}
-	
-	@And("User enters moses mutesa")
+	@And("Enter First Name or Last Name in “Patient Search” box")
 	public void enterPatientName() {
 		findPatientPage.enterPatientName("moses mutesa");
 	}
 	
-	@Then("Search Page returns patients")
+	@Then("Identify patient in list")
 	public void returnResults() {
 		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
 		assertNotNull(firstPatientIdentifier);
 	}
 
-	@And("User clicks on first patient")
+	@And("Click row with the patient you are searching for")
 	public void clickFirstPatient() {
 		findPatientPage.clickOnFirstPatient();
 	}
 	
-	@Then("System loads patient dashboard")
-	public void loadPatientDashboard() {
+	@Then("Selected patient’s “Cover Page” will be displayed")
+	public void loadPatientSelectedCoverPage() {
 		matchPatientIds(firstPatientIdentifier);
 	}
-	
 }

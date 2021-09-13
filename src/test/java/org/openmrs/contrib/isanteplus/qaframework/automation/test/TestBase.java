@@ -49,8 +49,6 @@ public class TestBase {
 	
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
 	
-	protected String firstPatientIdentifier;
-	
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	
 	private static volatile boolean serverFailure = false;

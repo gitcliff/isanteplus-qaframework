@@ -5,10 +5,9 @@ Feature: Patient Search
 
   @findPatient
   Scenario: Searching for a patient
-  And User clicks on Find Patient App
-  And User enters missing patient
-  Then Search Page returns no patients
-  And  User enters moses mutesa
-  Then Search Page returns patients
-  And  User clicks on first patient
-  Then System loads patient dashboard
+  And From the home page click ‘rechercher dossier de patient
+  And  Enter First Name or Last Name in “Patient Search” box
+  Then Identify patient in list
+  And  Click row with the patient you are searching for
+  Then Selected patient’s “Cover Page” will be displayed
+  
