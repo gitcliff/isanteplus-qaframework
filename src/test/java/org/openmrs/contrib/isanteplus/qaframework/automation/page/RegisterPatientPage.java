@@ -86,7 +86,7 @@ public class RegisterPatientPage extends Page {
     
     public void selectGender(String gender) {
         clickOn(LABEL_GENDER);
-        selectFrom(DROP_DOWN_GENDER, gender);
+        selectOptionFromDropDown(DROP_DOWN_GENDER);
     }
     
     public void enterNatinalId(String nationalId) {

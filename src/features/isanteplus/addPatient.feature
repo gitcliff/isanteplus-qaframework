@@ -16,5 +16,5 @@ Feature: Adding a Patient
   And User Clicks Save
   Then ‘Form Successfully Saved’ message and the newly added  patient Cover Sheet appears
   Examples:
-    |firstName |lastName |gender | age| nationalId| address|
-    |moses     |mutesa   |Male   | 20 | HAIT123   | haiti  |
+    |firstName |lastName |gender   | age| nationalId| address|
+    |moses     |mutesa   |Male     | 20 | HAIT123   | haiti  |
