@@ -1,13 +1,13 @@
 Feature: Change Password
 
-  Background:
-    Given User vists the Home Page and goes to System Administration Page
-    Then the system loads system administration page
-
   @password
-  Scenario Outline: Changing password  
-  When User goes to Manage Accounts App
-  Then the system loads manage acccount page
-  And User clicks edit button action
-  Then the system loads account page
+  Scenario Outline: Changing password 
+  When user logs into Isanteplus application and goes to the Home page
+  And user clicks System Administration  
+  And User clicks Manage Accounts App and goes to Manage Accounts page
+  And User clicks edit button action and goes to account page
   And User clicks on modifier under user account detaials
+  And User enters username "<userName>"
+   Examples:
+    |userName |
+    |admin     |

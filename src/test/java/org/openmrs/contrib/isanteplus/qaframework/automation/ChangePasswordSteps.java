@@ -12,8 +12,6 @@ import org.openmrs.contrib.isanteplus.qaframework.automation.page.SystemAdminist
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ChangePasswordSteps extends TestBase {
@@ -38,41 +36,39 @@ public class ChangePasswordSteps extends TestBase {
 		loginPage = new LoginPage(getWebDriver());
 	}
 
-	@Given("User vists the Home Page and goes to System Administration Page")
+	@When("user logs into Isanteplus application and goes to the Home page")
 	public void userVisitLoginPage() throws Exception {
 		homePage = loginPage.goToHomePage();
-		systemPage = homePage.clickSystemAdministrationApp();
 	}
 
-	@Then("the system loads system administration page")
+	@And("user clicks System Administration")
 	public void systemLoadsSystemAdministrationPage() {
-		 assertTrue(systemPage.containsText("System Administration"));
+		systemPage = homePage.clickSystemAdministrationApp();
+		assertTrue(systemPage.containsText("System Administration"));
 
 	}
 
-	@When("User goes to Manage Accounts App")
+	@And("User clicks Manage Accounts App and goes to Manage Accounts page")
 	public void visitManageAccountsAppsPage() throws Exception {
 		manageAccountsPage = systemPage.goToManageAccountsPage();
-	}
-
-	@Then("the system loads manage acccount page")
-	public void systemLoadsManageAccountsPage() {
 		assertTrue(manageAccountsPage.containsText("Manage Accounts"));
 	}
 
-	@And("User clicks edit button action")
+	@And("User clicks edit button action and goes to account page")
 	public void userClicksEditButton() throws Exception {
 		accountsPage = manageAccountsPage.editAccount();
-	}
-
-	@Then("the system loads account page")
-	public void systemLoadsAddNewAccountPage() {
 		assertTrue(accountsPage.containsText("Edit Account"));
+
 	}
 
 	@And("User clicks on modifier under user account detaials")
 	public void modifyAccount() throws Exception {
 		accountsPage.clickEditButton();
+	}
+
+	@And("User enters username {string}")
+	public void enterUsername(String userName) {
+		accountsPage.enterUserName(userName);
 	}
 
 }
