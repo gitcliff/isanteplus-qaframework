@@ -5,46 +5,42 @@ import org.openqa.selenium.By;
 public class FindPatientPage extends Page {
 	
 	private static final String PAGE_URL = "/coreapps/findpatient/findPatient.page?app=coreapps.findPatient";
-	private static final By PATIENT_SEARCH = By.id("patient-search");
-	private static final By PATIENT_ID_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tr:first-child td:first-child");	
-	private static final By PATIENT_NAME_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
 	
-	private String patientSearch;
+	private static final By PATIENT_SEARCH = By.id("patient-search");
+	
+	private static final By PATIENT_ID_SEARCH_RESULT = By
+	        .cssSelector("#patient-search-results-table tr:first-child td:first-child");
+	
+	private static final By PATIENT_NAME_SEARCH_RESULT = By
+	        .cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
 	
 	public FindPatientPage(Page page) {
 		super(page);
 	}
-
+	
 	public void enterPatientName(String patientSearch) {
 		setText(PATIENT_SEARCH, patientSearch);
 	}
-
-	public  ClinicianFacingPatientDashboardPage clickOnFirstPatient() {
+	
+	public ClinicianFacingPatientDashboardPage clickOnFirstPatient() {
 		clickOn(PATIENT_NAME_SEARCH_RESULT);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}
-
-	public void search(String text) {
-		setText(PATIENT_SEARCH, text);
+	
+	public void enterSearchText(String text) {
+		setTextToFieldNoEnter(PATIENT_SEARCH, text);
 	}
-
-	/**
-	 * Finds first record from the result table
-	 * 
-	 * @return patient id
-	 */
-	public String getFirstPatientIdentifier() {
-		getFirstPatientName();
-		return getText(PATIENT_ID_SEARCH_RESULT);
-	}
-
+	
 	public String getFirstPatientName() {
 		return getText(PATIENT_NAME_SEARCH_RESULT);
+	}
+	
+	public String getFirstPatientIdentifier() {
+		return getText(PATIENT_ID_SEARCH_RESULT);
 	}
 	
 	@Override
 	public String getPageUrl() {
 		return PAGE_URL;
 	}
-	
 }

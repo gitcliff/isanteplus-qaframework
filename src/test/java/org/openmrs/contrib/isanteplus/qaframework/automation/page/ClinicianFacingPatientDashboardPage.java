@@ -1,5 +1,9 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation.page;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.openqa.selenium.By;
 
 public class ClinicianFacingPatientDashboardPage extends Page {
@@ -42,14 +46,41 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	
 	private static final By END_VISIT = By.id("referenceapplication.realTime.endVisit");
 	
+	private static final By COLUMN_VIST_ACTIONS = By.xpath("//*[@id='content']/div[8]/div/div[3]");
+	
+	protected By PATIENT_ID_HEADER = By.cssSelector("div.identifiers span");
+	
+	protected By PATIENT_NAME_HEADER = By.xpath("//*[@id='breadcrumbs']/li[2]");
+	
 	public ClinicianFacingPatientDashboardPage(Page parent) {
 		super(parent);
-		
 	}
 	
 	@Override
 	public String getPageUrl() {
-		
 		return URL_PATH;
+	}
+	
+	public Boolean hasVistActionsColumn() {
+		return hasElement(COLUMN_VIST_ACTIONS);
+	}
+	
+	private String trimPatientId(String id) {
+		id = id.replace("Recent", "");
+		if (id.indexOf("[") > 0) {
+			id = id.split("\\[")[0];
+		}
+		if (id.indexOf(" ") > 0) {
+			id = id.split(" ")[0];
+		}
+		return id;
+	}
+	
+	public Boolean patientIdsMatch(String patientId) {
+		return getText(PATIENT_ID_HEADER).contains(trimPatientId(patientId));
+	}
+	
+	public String getPatientNames() {
+		return getText(PATIENT_NAME_HEADER);
 	}
 }

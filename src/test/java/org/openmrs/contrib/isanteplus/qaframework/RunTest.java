@@ -14,11 +14,14 @@ import io.cucumber.junit.CucumberOptions;
                 "message:target/cucumber.ndjson" }, monochrome = true)
 public class RunTest {
 	
-	public class HOOK {	
+	public class HOOK {
+		
 		public static final String LOGIN = "@login";
-                
-                public static final String REGISTRATION = "@register";
-                public static final String FINDPATIENT = "@findPatient";
-                public static final String PASSWORD = "@password";
+		
+		public static final String REGISTRATION = "@register";
+		
+		public static final String FINDPATIENT = "@findPatient";
+		
+		public static final String PASSWORD = "@password";
 	}
 }
