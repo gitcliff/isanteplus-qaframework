@@ -44,31 +44,28 @@ public class ChangePasswordSteps extends TestBase {
 	@And("user clicks System Administration")
 	public void systemLoadsSystemAdministrationPage() {
 		systemPage = homePage.clickSystemAdministrationApp();
-		assertTrue(systemPage.containsText("System Administration"));
-
 	}
 
 	@And("User clicks Manage Accounts App and goes to Manage Accounts page")
 	public void visitManageAccountsAppsPage() throws Exception {
 		manageAccountsPage = systemPage.goToManageAccountsPage();
-		assertTrue(manageAccountsPage.containsText("Manage Accounts"));
 	}
 
 	@And("User clicks edit button action and goes to account page")
 	public void userClicksEditButton() throws Exception {
 		accountsPage = manageAccountsPage.editAccount();
-		assertTrue(accountsPage.containsText("Edit Account"));
-
 	}
 
-	@And("User clicks on modifier under user account detaials")
-	public void modifyAccount() throws Exception {
+	@And("User clicks on modifier under user account detaials and enters username {string} and privillage {string}")
+	public void modifyAccount(String userName, String newPrivillage) throws Exception {
 		accountsPage.clickEditButton();
+		accountsPage.enterUserName(userName);
+		accountsPage.selectPrevillageLevel(newPrivillage);
 	}
 
-	@And("User enters username {string}")
-	public void enterUsername(String userName) {
-		accountsPage.enterUserName(userName);
+	@And("User checks force password")
+	public void enableForcedPassword() {
+		accountsPage.forcePasswordIsChecked();
 	}
 
 }

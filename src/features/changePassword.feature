@@ -6,8 +6,7 @@ Feature: Change Password
   And user clicks System Administration  
   And User clicks Manage Accounts App and goes to Manage Accounts page
   And User clicks edit button action and goes to account page
-  And User clicks on modifier under user account detaials
-  And User enters username "<userName>"
+  And User clicks on modifier under user account detaials and enters username "<userName>" and privillage "<newPrivillage>"
    Examples:
-    |userName |
-    |admin     |
+    |userName |newPrivillage |
+    |admin     |Full |
