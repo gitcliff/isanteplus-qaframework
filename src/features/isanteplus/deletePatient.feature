@@ -9,5 +9,5 @@ Feature: Delete Patient
   And  Search for a patient "<patientName>" patientName and load their cover page
   Then Click 'Delete Patient'
    Examples:
-      | patientName  | REASON |
+      | patientName  | Reason |
       | moses mutesa | patient discharged|
