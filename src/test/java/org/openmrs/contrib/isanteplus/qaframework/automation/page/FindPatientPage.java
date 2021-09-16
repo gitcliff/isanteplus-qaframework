@@ -58,6 +58,10 @@ public class FindPatientPage extends Page {
 		return new ClinicianFacingPatientDashboardPage(this);	
 	}
 	
+	public Boolean hasSearchPatientRecord() {
+		return hasElement(PATIENT_SEARCH);
+	}
+	
 	@Override
 	public String getPageUrl() {
 		return PAGE_URL;

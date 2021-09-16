@@ -1,5 +1,7 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openmrs.contrib.isanteplus.qaframework.RunTest;
 import org.openmrs.contrib.isanteplus.qaframework.automation.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.isanteplus.qaframework.automation.page.FindPatientPage;
@@ -12,6 +14,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class DeletePatientSteps extends TestBase {
 
@@ -40,20 +43,25 @@ public class DeletePatientSteps extends TestBase {
 		homePage = loginPage.goToHomePage();
 	}
 
-	@Then("User clicks on search Patient Record app")
+	@When("User clicks on search Patient Record app")
 	public void userVisitFindPatientRecordApp() throws Exception {
 		findPatientPage = homePage.clickOnSearchPatientRecord();
 	}
 
-	@And("Search for a patient {string} patientName and load their cover page")
+	@And("User searches for a patient {string} patientName and load their cover page")
 	public void userSearchForPatient(String Reason) {
 		findPatientPage.enterPatientName(Reason);
 		findPatientPage.getFirstPatientIdentifier();
 		findPatientPage.clickOnFirstPatient();
 	}
 
-	@Then("Click 'Delete Patient'")
+	@And("User clicks 'Delete Patient'")
 	public void userClickOnDeletePatient() {
 		dashboardPage = findPatientPage.clickOnDeletePatient();
+	}
+	
+	@Then("Patient deleted successfully message appears, and redirected to patient search page")
+	public void loadFindPatientPage() {
+		assertTrue(findPatientPage.hasSearchPatientRecord());
 	}
 }
