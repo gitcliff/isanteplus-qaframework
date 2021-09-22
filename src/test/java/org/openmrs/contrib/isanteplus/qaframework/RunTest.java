@@ -25,5 +25,7 @@ public class RunTest {
 		public static final String PASSWORD = "@password";
 		
 		public static final String DELETEPATIENT = "@deletePatient";
+		
+		public static final String REPORTS = "@reports";
 	}
 }
