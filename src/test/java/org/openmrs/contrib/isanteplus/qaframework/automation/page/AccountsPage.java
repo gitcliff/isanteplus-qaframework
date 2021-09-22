@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 public class AccountsPage extends Page {
 	
 	private static final String PAGE_PATH = "adminui/systemadmin/accounts/account.page?personId=1&";
-	
-	// private static final By BUTTON_LOGOUT = By.xpath("//i[@class='icon-signout small']");
-	
+		
 	private static final By MODIFIER = By.xpath("//form[@name='userDetailsForm']//i[@class='icon-edit edit-action right']");
 	
 	private static final By LABEL_USER_NAME = By.xpath("//input[starts-with(@id,'adminui-username')]");
@@ -35,7 +33,7 @@ public class AccountsPage extends Page {
 	private final By CHECK_ADD_USER_ACCOUNT = By.id("adminui-addUserAccount");
 	
 	private final By CHECK_SUPER_USER = By
-	        .xpath("//input[starts-with(@id,'adminui-capabilities-Application: Has Super User Privileges')]");
+            .xpath("//select[starts-with(@id,'adminui-capabilities-Application: Has Super User Privileges')]");
 		
 	private static final By DROP_DOWN_PRIVILEGE_LEVEL = By.xpath("//select[starts-with(@id,'adminui-privilegeLevel')]");
 	
@@ -85,7 +83,6 @@ public class AccountsPage extends Page {
 	}
 	
 	public void clickLogoutButton() {
-		// clickOn(BUTTON_LOGOUT);
 		goToPage("appui/header/logout.action?successUrl=openmrs");
 		goToPage("/login.htm");
 	}
