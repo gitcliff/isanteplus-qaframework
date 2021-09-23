@@ -60,8 +60,7 @@ public class AccountsPage extends Page {
 	public void checkForcePassword() {
 		if (isChecked(CHECK_FORCE_PASSWORD)) {} else {
 			clickOn(CHECK_FORCE_PASSWORD);
-		}
-		
+		}		
 	}
 	
 	public Boolean administerSystemIsChecked() {
@@ -80,6 +79,5 @@ public class AccountsPage extends Page {
 	
 	public void saveRoles() {
 		clickOn(BUTTON_SAVE);
-	}
-	
+	}	
 }
