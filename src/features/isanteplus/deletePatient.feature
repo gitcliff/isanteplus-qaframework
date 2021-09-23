@@ -10,5 +10,5 @@ Feature: Delete Patient
   And   User clicks 'Delete Patient'
   Then  Patient deleted successfully message appears, and redirected to patient search page
    Examples:
-      | patientName  | Reason |
+      | patientName  | Reason            |
       | moses mutesa | patient discharged|
