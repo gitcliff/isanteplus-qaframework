@@ -15,15 +15,15 @@ public class FindPatientPage extends Page {
 	        .cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
 	
 	private static final By DELETE_PATIENT_REASON = By.cssSelector("#delete-reason");
-
+	
 	private static final By DELETE_PATIENT_CONFIRM_BUTTON = By
 	        .cssSelector("#delete-patient-creation-dialog > div.dialog-content > button.confirm.right");
-
+	
 	private static final By DELETE_PATIENT_CANCEL_BUTTON = By
 	        .cssSelector("#delete-patient-creation-dialog > div.dialog-content > button.cancel");
-
+	
 	private static final By DELETE_PATIENT = By.id("org.openmrs.module.coreapps.deletePatient");
-
+	
 	private static String REASON = "patient discharged";
 	
 	public FindPatientPage(Page page) {
@@ -55,7 +55,7 @@ public class FindPatientPage extends Page {
 		clickOn(DELETE_PATIENT);
 		setTextToFieldNoEnter(DELETE_PATIENT_REASON, REASON);
 		clickOn(DELETE_PATIENT_CONFIRM_BUTTON);
-		return new ClinicianFacingPatientDashboardPage(this);	
+		return new ClinicianFacingPatientDashboardPage(this);
 	}
 	
 	public Boolean hasSearchPatientRecord() {

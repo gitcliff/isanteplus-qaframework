@@ -40,6 +40,7 @@ public class AddPatientSteps extends TestBase {
 	
 	@Given("User logins in and goes to Home Page")
 	public void visitLoginPage() throws Exception {
+		System.out.println(".... Adding a Patient......");
 		homePage = loginPage.goToHomePage();
 	}
 	
@@ -50,7 +51,7 @@ public class AddPatientSteps extends TestBase {
 	
 	@And("User Enters Date of Visit")
 	public void enterDateOfVist() {
-		//by default today is selected
+		// by default today is selected
 		assertTrue(registerPatientPage.registrationDateIsChecked());
 	}
 	
@@ -75,7 +76,7 @@ public class AddPatientSteps extends TestBase {
 	}
 	
 	@And("User Enters ST Code {string}")
-	public void enterStCode(String stCode) {
+	public void enterStCode(String stCode) throws InterruptedException {
 		registerPatientPage.enterStCode(stCode);
 	}
 	
@@ -90,7 +91,7 @@ public class AddPatientSteps extends TestBase {
 	}
 	
 	@And("User Clicks Save")
-	public void clickSave() {
+	public void clickSave() throws InterruptedException {
 		patientVisitsDashboardPage = registerPatientPage.savePatient();
 		if (registerPatientPage.hasValidationError()) {
 			UUID uuid = UUID.randomUUID();
