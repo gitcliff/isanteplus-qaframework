@@ -19,8 +19,7 @@ public class ManageAccountsPage extends Page {
 		return MANAGE_ACCOUNTS;
 	}
 	
-	public AccountsPage editAccount() {
-		
+	public AccountsPage editAccount() {	
 		clickOn(EDIT_ACTION_BUTTON);
 		return new AccountsPage(this);
 	}
