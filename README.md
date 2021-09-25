@@ -39,6 +39,8 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
 | delete patient      | @deletepatient|
 | add user            | @addUser      |
 | search user         | searchUser    |
+| delete user         | deletehUser    |
+
 
 
        

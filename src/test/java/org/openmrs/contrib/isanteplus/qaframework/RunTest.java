@@ -30,5 +30,8 @@ public class RunTest {
 		
 		public static final String SEARCHUSER = "@searchUser";
 
+		public static final String DELETEUSER = "@deleteUser";
+
+
 	}
 }

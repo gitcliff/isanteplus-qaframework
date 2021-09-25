@@ -11,6 +11,8 @@ public class ManageAccountsPage extends Page {
 	private static final By ADD_ACCOUNT_BUTTON = By.xpath("//*[@class='button']");
 
 	private static final By LABEL_SEARCH = By.xpath("//input[starts-with(@type,'text')]");
+
+	private static final By PENCIL_ICON = By.xpath("//*[@id='list-accounts']/tbody/tr[1]/td[5]/i");
 	
 	public ManageAccountsPage(Page page) {
 		super(page);
@@ -34,5 +36,10 @@ public class ManageAccountsPage extends Page {
 	
 	public void clickSearchTextBox(String user) {	
 		setText(LABEL_SEARCH, user);
+	}
+
+	public AccountsPage goToAccountsPage(){
+		clickOn(PENCIL_ICON);
+		return new AccountsPage(this);
 	}
 }
