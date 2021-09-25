@@ -1,7 +1,5 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
-
 import org.openmrs.contrib.isanteplus.qaframework.RunTest;
 import org.openmrs.contrib.isanteplus.qaframework.automation.test.TestBase;
 import org.openmrs.contrib.isanteplus.qaframework.automation.page.AccountsPage;

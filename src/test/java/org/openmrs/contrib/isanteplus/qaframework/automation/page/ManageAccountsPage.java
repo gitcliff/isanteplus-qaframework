@@ -9,6 +9,9 @@ public class ManageAccountsPage extends Page {
 	private static final String ACCOUNTS = "/adminui/systemadmin/accounts/account.page?personId=1&";
 	
 	private static final By EDIT_ACTION_BUTTON = By.xpath("//*[@class='icon-pencil edit-action']");
+
+	private static final By ADD_ACCOUNT_BUTTON = By.xpath("//*[@class='button']");
+
 	
 	public ManageAccountsPage(Page page) {
 		super(page);
@@ -21,6 +24,12 @@ public class ManageAccountsPage extends Page {
 	
 	public AccountsPage editAccount() {	
 		clickOn(EDIT_ACTION_BUTTON);
+		return new AccountsPage(this);
+	}
+
+	public AccountsPage clickAddAccount() {
+
+		clickOn(ADD_ACCOUNT_BUTTON);
 		return new AccountsPage(this);
 	}
 	
