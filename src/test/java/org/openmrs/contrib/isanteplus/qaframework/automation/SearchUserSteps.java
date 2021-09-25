@@ -32,6 +32,7 @@ public class SearchUserSteps extends TestBase {
 
     @Before(RunTest.HOOK.SEARCHUSER)
     public void setLoginPage() {
+        System.out.println(".... User Login......");
         loginPage = new LoginPage(getWebDriver());
     }
 
