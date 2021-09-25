@@ -1,8 +1,4 @@
 package org.openmrs.contrib.isanteplus.qaframework.automation.page;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WebDriver;
-
-
 
 import org.openqa.selenium.By;
 
