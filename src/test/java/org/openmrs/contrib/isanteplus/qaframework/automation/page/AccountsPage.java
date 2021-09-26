@@ -41,6 +41,13 @@ public class AccountsPage extends Page {
 
 	private static final By BUTTON_SAVE_ACCONT = By.xpath("//input[starts-with(@id,'save-button')]");
 
+	private static final By BUTTON_RETIRE = By.xpath("/html/body/div/div[3]/div[3]/div/form/fieldset/div/div[1]/div[1]/div/button");
+
+	private static final By BUTTON_RETIRE_REASON = By.xpath("/html/body/div[2]/div[2]/div[2]/p/input");
+
+	private static final By BUTTON_CONFIRM = By.xpath("/html/body/div[3]/div[2]/div[2]/div/button[1]/font/font");
+
+
 	
 	public AccountsPage(Page page) {
 		super(page);
@@ -54,7 +61,7 @@ public class AccountsPage extends Page {
 	public void clickEditButton() {
 		clickOn(MODIFIER);
 	}
-	
+
 	public void checkHasSuperPriviledges() {
 		clickOn(CHECK_SUPER_USER);
 	}
@@ -132,4 +139,16 @@ public class AccountsPage extends Page {
 		clickOn(BUTTON_SAVE_ACCONT);
 	}
 
+	public void retireUser() {
+		clickOn(BUTTON_RETIRE);
+	}
+
+	public void clickConfimButton() {
+		clickOn(BUTTON_CONFIRM);
+	}
+
+	public void retireReason(String reason) {
+		clickOn(BUTTON_RETIRE_REASON);
+		setTextToFieldNoEnter(BUTTON_RETIRE_REASON, reason);
+	}
 }
