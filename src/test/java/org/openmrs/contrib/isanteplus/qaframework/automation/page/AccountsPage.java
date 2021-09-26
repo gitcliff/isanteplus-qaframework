@@ -61,7 +61,7 @@ public class AccountsPage extends Page {
 	public void clickEditButton() {
 		clickOn(MODIFIER);
 	}
-	
+
 	public void checkHasSuperPriviledges() {
 		clickOn(CHECK_SUPER_USER);
 	}

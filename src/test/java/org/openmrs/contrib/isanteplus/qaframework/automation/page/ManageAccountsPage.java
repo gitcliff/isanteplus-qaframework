@@ -13,6 +13,7 @@ public class ManageAccountsPage extends Page {
 	private static final By LABEL_SEARCH = By.xpath("//input[starts-with(@type,'text')]");
 
 	private static final By PENCIL_ICON = By.xpath("//*[@id='list-accounts']/tbody/tr[1]/td[5]/i");
+
 	
 	public ManageAccountsPage(Page page) {
 		super(page);

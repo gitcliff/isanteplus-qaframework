@@ -30,16 +30,14 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
  See All test features bellow with their coresponding filter tags      
 
 
-| Test Feature        |Filter Tag     |
-|:------------------: |:-------------:|
-| Login               | @login        | 
-| Adding a Patient    | @register     |
-| search for a patient| @findPatient  |
-| Changing Password   | @password     |
-| delete patient      | @deletepatient|
-| add user            | @addUser      |
-| search user         | searchUser    |
-| delete user         | deletehUser    |
+| Test Feature        |Filter Tag      |
+|:------------------: |:-------------: |
+| Login               | @login         | 
+| Adding a Patient    | @register      |
+| search for a patient| @findPatient   |
+| Changing Password   | @password      |
+| delete patient      | @deletepatient |
+| user management     | @userManagement|
 
 
 
