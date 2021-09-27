@@ -16,38 +16,37 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class PatientCoverSheetSteps extends TestBase {
-
+	
 	private FindPatientPage findPatientPage;
-
-	private ClinicianFacingPatientDashboardPage  clinicianFacingPatientDashboardPage;
-
+	
+	private ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage;
+	
 	private LoginPage loginPage;
-
+	
 	private HomePage homePage;
-
+	
 	@Before(RunTest.HOOK.PATIENT_SUMMARY)
 	public void setUp() {
 		loginPage = new LoginPage(getWebDriver());
 	}
-
+	
 	@After(RunTest.HOOK.PATIENT_SUMMARY)
 	public void destroy() {
 		quit();
 	}
-
+	
 	@Given("system user logs into Isanteplus application and goes to the Home page")
 	public void systemUserVisitLoginPage() throws Exception {
 		homePage = loginPage.goToHomePage();
 	}
 	
-	
 	@When("Search for and select Patient {string}")
 	public void searchForPatientAndloadDashboardPage(String patientName) throws Exception {
-	   findPatientPage = homePage.clickOnSearchPatientRecord();
-	   findPatientPage.enterPatientName(patientName);
-       clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();   
+		findPatientPage = homePage.clickOnSearchPatientRecord();
+		findPatientPage.enterPatientName(patientName);
+		clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();
 	}
-
+	
 	@Then("Selected patient’s ‘Cover Sheet’ will be displayed with the following")
 	public void loadPatientDashboardPage() {
 		assertTrue(clinicianFacingPatientDashboardPage.containsText("DIAGNOSTICS"));
