@@ -7,12 +7,14 @@ public class RunReportPage extends Page {
 	
 	private static final By CALENDAR_ICON = By.xpath("/html/body/div[1]/div[3]/div/div[2]/fieldset/form/p[1]/span/span[1]/input");
 	
-	private static final By START_DATE = By.xpath("/html/body/div[2]/div[3]/table/tbody/tr[4]/td[5]");
+	private static final By START_DATE = By.xpath("/html/body/div[2]/div[3]/table/tbody/tr[5]/td[5]");
 
 	
-	private static final By END_DATE = By.xpath("/html/body/div[3]/div[3]/table/tbody/tr[4]/td[6]");
+	private static final By END_DATE = By.xpath("/html/body/div[3]/div[3]/table/tbody/tr[5]/td[1]");
 	
-	private static final By OUTPUT_FORMAT = By.cssSelector("#fr3858-field");
+	private static final By FORMAT_REVIEW = By.xpath("//*[@id=\"fr5107-field\"]");
+	
+	private static final By OUTPUT_FORMAT = By.xpath("//*[@id=\"fr5107-field\"]");
 	
 	private static final By RUN_REPORT    = By.xpath("/html/body/div[1]/div[3]/div/div[2]/fieldset/form/button/i");
 	
@@ -32,10 +34,16 @@ public class RunReportPage extends Page {
 	}
 	
 	public void clickOnEndDate() {
-	   driver.findElement(END_DATE).click();
+		waiter.until( ExpectedConditions.visibilityOfAllElementsLocatedBy(END_DATE));
 		clickOn(END_DATE);
 	}
 	
+//	public void selectOutPutFormat() {
+//		clickOn(OUTPUT_FORMAT);
+//		Select outPutReview = new Select(driver.findElement(By.id("fr5107-field")));
+//	    outPutReview.selectByVisibleText(FORMAT);
+//	}
+//	
 	public void clickOnRunButton() {
 		clickOn(RUN_REPORT);
 	}

@@ -50,19 +50,24 @@ public class ReportSteps extends TestBase {
 		runReportPage = reportsPage.clickOnNUmberOfHivPatientsLink();
 	}
 	
-//	@Then("User clicks on calendar icon")
-//	public void userClicksOnCurrendar() {
-//		runReportPage.clickOnCalender();
-//	}
+	@Then("User clicks on calendar icon")
+	public void userClicksOnCurrendar() {
+		runReportPage.clickOnCalender();
+	}
 	
-//	@And("User clicks on start date calendar")
-//	public void userClicksOnStartDate() {
-//		runReportPage.chooseCurrentDate();
-//	}
-//	
+	@And("User clicks on start date calendar")
+	public void userClicksOnStartDate() {
+		runReportPage.chooseCurrentDate();
+	}
+	
+	@And("User Select the output format")
+	public void selectFormat() {
+		runReportPage.selectOutPutFormat();
+	}
 
 	@Then("User clicks on Run Button")
 	public void userClicksOnRunReport() {
 		runReportPage.clickOnRunButton();
+		runReportPage.waitForPage();
 	}
 }
