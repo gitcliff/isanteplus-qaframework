@@ -1,0 +1,60 @@
+package org.openmrs.contrib.isanteplus.qaframework.automation;
+
+import static org.junit.Assert.assertTrue;
+
+import org.openmrs.contrib.isanteplus.qaframework.RunTest;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.FindPatientPage;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.HomePage;
+import org.openmrs.contrib.isanteplus.qaframework.automation.page.LoginPage;
+import org.openmrs.contrib.isanteplus.qaframework.automation.test.TestBase;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class PatientSummarySteps extends TestBase {
+
+	private FindPatientPage findPatientPage;
+
+	private ClinicianFacingPatientDashboardPage  clinicianFacingPatientDashboardPage;
+
+	private LoginPage loginPage;
+
+	private HomePage homePage;
+
+	@Before(RunTest.HOOK.PATIENT_SUMMARY)
+	public void setUp() {
+		loginPage = new LoginPage(getWebDriver());
+	}
+
+	@After(RunTest.HOOK.PATIENT_SUMMARY)
+	public void destroy() {
+		quit();
+	}
+
+	@Given("system user logs into Isanteplus application and goes to the Home page")
+	public void systemUserVisitLoginPage() throws Exception {
+		homePage = loginPage.goToHomePage();
+	}
+	
+	@When("system loads Patient dashboardPage")
+	public void loadDashboardPage() throws Exception {
+	   findPatientPage = homePage.clickOnSearchPatientRecord();
+	   clinicianFacingPatientDashboardPage = findPatientPage.ClinicianFacingPatientDashboardPage();   
+	}
+
+	@Then("Patient summary should display in pdf format on the screen")
+	public void loadPatientDashboardPage() {
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("DIAGNOSTICS"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("Signes vitaux"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("RECENT VISITS"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("Alerte des Patients"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("ALLERGIES"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("Dernier test de charge virale"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("Courbe de Poids"));
+		assertTrue(clinicianFacingPatientDashboardPage.containsText("BMI's Graphique"));
+	}
+}
