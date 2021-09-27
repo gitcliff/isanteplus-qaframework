@@ -46,7 +46,7 @@ public class PatientSummarySteps extends TestBase {
 	   clinicianFacingPatientDashboardPage = findPatientPage.ClinicianFacingPatientDashboardPage();   
 	}
 
-	@Then("Patient summary should display in pdf format on the screen")
+	@Then("Selected patient’s ‘Cover Sheet’ will be displayed with the following")
 	public void loadPatientDashboardPage() {
 		assertTrue(clinicianFacingPatientDashboardPage.containsText("DIAGNOSTICS"));
 		assertTrue(clinicianFacingPatientDashboardPage.containsText("Signes vitaux"));

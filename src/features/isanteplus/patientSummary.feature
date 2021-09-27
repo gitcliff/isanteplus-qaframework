@@ -6,4 +6,4 @@ Feature: Patient Summary
   @patientSummary
   Scenario: Patient Summary widget
   When  system loads Patient dashboardPage
-  Then  Patient summary should display in pdf format on the screen
+  Then  Selected patient’s ‘Cover Sheet’ will be displayed with the following
