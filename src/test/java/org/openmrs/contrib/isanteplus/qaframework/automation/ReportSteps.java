@@ -60,9 +60,15 @@ public class ReportSteps extends TestBase {
 		runReportPage.chooseCurrentDate();
 	}
 	
-	@Then("User clicks on Run Button")
+	@And("User clicks on Run Button")
 	public void userClicksOnRunReport() {
 		runReportPage.clickOnRunButton();
 		runReportPage.waitForPage();
 	}
+	
+	@Then("System returns Available for download")
+	public void systemReturnsAvailableDownload() {
+		runReportPage.containsText("Disponible pour téléchargement");
+	}
+	
 }

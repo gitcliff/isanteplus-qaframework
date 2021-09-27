@@ -16,6 +16,8 @@ public class RunReportPage extends Page {
 	
 	private static final By OUTPUT_FORMAT = By.xpath("//*[@id=\"fr5107-field\"]");
 	
+	private static final By DOWNLOAD_TABLE = By.cssSelector("#content > div > div.past-reports > fieldset:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2)");
+	
 	private static final By RUN_REPORT    = By.xpath("/html/body/div[1]/div[3]/div/div[2]/fieldset/form/button/i");
 	
 	private static String FORMAT = "Html";

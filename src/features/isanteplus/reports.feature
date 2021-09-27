@@ -10,5 +10,6 @@ Feature: Patient Search
   Then    User clicks on calendar icon
   And     User clicks on start date calendar
   Then    User clicks on Run Button
+  Then    System returns Available for download
  
  
