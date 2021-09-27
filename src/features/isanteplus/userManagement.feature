@@ -45,4 +45,18 @@ Feature: User Management
 
   Examples:
       | user        |reason             |
-      | DO john     |user nolonger used |      
+      | DO john     |user nolonger used |   
+
+  @userManagement
+  Scenario Outline: Setting user access
+  When From the main menu select System Administration app
+  And Select Manage Accounts App 
+  And Click the pencil icon in the ‘Action’ column next to the desired user name
+  And Select the modifier icon in the top right corner of the ‘details du compte d’utilisateur’
+  And select the appropriate privileges under ‘capacites’ checkboxes "<userName>" "<privillage>"
+  And admin clicks save
+  Then User should see a notification ‘Changements sauvegardés avec succès'
+  Examples:
+    |userName |privillage |           
+    |admin    |Full       |
+            
