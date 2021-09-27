@@ -38,12 +38,6 @@ public class RunReportPage extends Page {
 		clickOn(END_DATE);
 	}
 	
-//	public void selectOutPutFormat() {
-//		clickOn(OUTPUT_FORMAT);
-//		Select outPutReview = new Select(driver.findElement(By.id("fr5107-field")));
-//	    outPutReview.selectByVisibleText(FORMAT);
-//	}
-//	
 	public void clickOnRunButton() {
 		clickOn(RUN_REPORT);
 	}

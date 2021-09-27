@@ -60,11 +60,6 @@ public class ReportSteps extends TestBase {
 		runReportPage.chooseCurrentDate();
 	}
 	
-	@And("User Select the output format")
-	public void selectFormat() {
-		runReportPage.selectOutPutFormat();
-	}
-
 	@Then("User clicks on Run Button")
 	public void userClicksOnRunReport() {
 		runReportPage.clickOnRunButton();
