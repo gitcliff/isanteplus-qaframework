@@ -4,7 +4,7 @@ Feature: Patient Summary
     Given system user logs into Isanteplus application and goes to the Home page
 
   @patientCoverSheet
-  Scenario: Patient Summary widget
+  Scenario: Patient Cover sheet
   When Search for and select Patient "<patientName>"
   Then  Selected patient’s ‘Cover Sheet’ will be displayed with the following
    Examples:

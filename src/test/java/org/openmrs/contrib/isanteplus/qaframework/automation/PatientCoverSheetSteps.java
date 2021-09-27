@@ -37,6 +37,7 @@ public class PatientCoverSheetSteps extends TestBase {
 	
 	@Given("system user logs into Isanteplus application and goes to the Home page")
 	public void systemUserVisitLoginPage() throws Exception {
+		System.out.println(".... Patient Cover sheet......");
 		homePage = loginPage.goToHomePage();
 	}
 	
@@ -44,6 +45,7 @@ public class PatientCoverSheetSteps extends TestBase {
 	public void searchForPatientAndloadDashboardPage(String patientName) throws Exception {
 		findPatientPage = homePage.clickOnSearchPatientRecord();
 		findPatientPage.enterPatientName(patientName);
+		System.out.println(".....Patient Cover sheet......");
 		clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 	
