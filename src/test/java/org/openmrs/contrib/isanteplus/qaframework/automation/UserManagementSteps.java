@@ -161,4 +161,33 @@ public class UserManagementSteps extends TestBase {
         accountsPage.containsText("Retire avec success");
     }
 
+    @And("Click the pencil icon in the ‘Action’ column next to the preffred user name")
+    public void clickPencilIcon() throws Exception {
+        manageAccountsPage.goToAccountsPage();
+    }
+
+    @And("Select the modifier icon in the top right corner of the ‘details du compte d’utilisateur’")
+    public void selectModifierIcon() throws Exception {
+        accountsPage.clickEditButton();
+    }
+
+    @And("select the appropriate privileges under ‘capacites’ checkboxes {string} {string}")
+    public void selectAppropriatePrivillages(String userName, String privillage) throws Exception {
+        accountsPage.enterUserName(userName);
+        accountsPage.selectPrevillageLevel(privillage);
+        Thread.sleep(5000);
+        accountsPage.checkHasSuperPriviledges();
+    }
+
+    @And("admin clicks save")
+	public void saveRoles() throws InterruptedException {
+		Thread.sleep(5000);
+		accountsPage.saveRoles();
+		 Thread.sleep(5000);
+	}
+
+    @Then("User should see a notification ‘Changements sauvegardés avec succès'")
+    public void savePrivillageLevel() throws Exception {
+        assertTrue(accountsPage.containsText("Changements sauvegardés avec succès"));
+    }
 }

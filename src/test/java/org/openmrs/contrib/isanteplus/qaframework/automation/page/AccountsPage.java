@@ -33,7 +33,7 @@ public class AccountsPage extends Page {
 	private final By CHECK_ADD_USER_ACCOUNT = By.id("adminui-addUserAccount");
 	
 	private final By CHECK_SUPER_USER = By
-            .xpath("//select[starts-with(@id,'adminui-capabilities-Application: Has Super User Privileges')]");
+            .xpath("/html/body/div/div[3]/div[3]/div/form/fieldset/div/div[1]/div[2]/table/tbody/tr[4]/td[2]/input");
 		
 	private static final By DROP_DOWN_PRIVILEGE_LEVEL = By.xpath("//select[starts-with(@id,'adminui-privilegeLevel')]");
 	
