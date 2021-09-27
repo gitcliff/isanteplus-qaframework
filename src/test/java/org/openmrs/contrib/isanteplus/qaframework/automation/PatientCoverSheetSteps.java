@@ -15,7 +15,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class PatientSummarySteps extends TestBase {
+public class PatientCoverSheetSteps extends TestBase {
 
 	private FindPatientPage findPatientPage;
 
@@ -40,10 +40,12 @@ public class PatientSummarySteps extends TestBase {
 		homePage = loginPage.goToHomePage();
 	}
 	
-	@When("system loads Patient dashboardPage")
-	public void loadDashboardPage() throws Exception {
+	
+	@When("Search for and select Patient {string}")
+	public void searchForPatientAndloadDashboardPage(String patientName) throws Exception {
 	   findPatientPage = homePage.clickOnSearchPatientRecord();
-	   clinicianFacingPatientDashboardPage = findPatientPage.ClinicianFacingPatientDashboardPage();   
+	   findPatientPage.enterPatientName(patientName);
+       clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();   
 	}
 
 	@Then("Selected patient’s ‘Cover Sheet’ will be displayed with the following")

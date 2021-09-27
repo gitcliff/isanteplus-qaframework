@@ -30,7 +30,7 @@ public class RunTest {
 		
 		public static final String SEARCHUSER = "@searchUser";
 		
-		public static final String PATIENT_SUMMARY = "@patientSummary";
+		public static final String PATIENT_SUMMARY = "@patientCoverSheet";
 
 	}
 }
