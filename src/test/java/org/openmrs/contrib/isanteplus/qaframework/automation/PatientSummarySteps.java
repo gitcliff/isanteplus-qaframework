@@ -60,15 +60,15 @@ public class PatientSummarySteps extends TestBase {
 	
 	@Then("Check that the following exist")
 	public void checkPatientSummary() throws Exception {
-		assertTrue(patientSummaryPage.containsText("RÃ©sumÃ© du Dossier MÃ©dical"));
-		assertTrue(patientSummaryPage.containsText("Informations dÃ©mographiques"));
-		assertTrue(patientSummaryPage.containsText("Visites/Fiches (dernier 6 mois et premiÃ¨re visite)"));
-		assertTrue(patientSummaryPage.containsText(" Examens cliniques"));
-		assertTrue(patientSummaryPage.containsText("RÃ©sultats de laboratoire"));
-		assertTrue(patientSummaryPage.containsText("MÃ©dicaments dispensÃ©s"));
-		assertTrue(patientSummaryPage.containsText("Derniers signes vitaux"));
-		assertTrue(patientSummaryPage.containsText("Motifs de consultation"));
-		assertTrue(patientSummaryPage.containsText("Impressions cliniques et diagnostiques"));
+		assertTrue(patientSummaryPage.containsText("Demographics data"));
+		assertTrue(patientSummaryPage.containsText("Visits/Forms (last 6 months and first visit)"));
+		assertTrue(patientSummaryPage.containsText("Clinic exams"));
+		assertTrue(patientSummaryPage.containsText("Laboratory results"));
+		assertTrue(patientSummaryPage.containsText("Dispensing drugs"));
+		assertTrue(patientSummaryPage.containsText("Last vitals"));
+		assertTrue(patientSummaryPage.containsText("Consultation reasons"));
+		assertTrue(patientSummaryPage.containsText("Diagnostics"));
+		assertTrue(patientSummaryPage.containsText("Last Viral Load Test"));
 		
 	}
 	
