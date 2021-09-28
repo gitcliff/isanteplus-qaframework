@@ -65,6 +65,11 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public Boolean hasVistActionsColumn() {
 		return hasElement(COLUMN_VIST_ACTIONS);
 	}
+	
+	public PatientSummaryPage clickOnPatientSummary() {
+		clickOn(PATIENT_SUMMARY);
+		return new PatientSummaryPage(this);
+	}
 
 	public void clickStartConsultation() {
 		clickOn(CONSULTATION);

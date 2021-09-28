@@ -1,12 +1,13 @@
 Feature: Patient Summary
 
  Background:
-    Given system user logs into Isanteplus application and goes to the Home page
+    Given system user logs into  and goes to the Home page
 
-  @patientCoverSheet
-  Scenario: Patient Cover sheet
-  When Search for a patient (Use case #4.1 or 4.2)
-  Then  Select ‘Resume de patient’ on the right hand side menu
+  @patientSummary
+  Scenario: Patient Summary
+  When    Search for a Patient "<patientName>"
+  And     Select ‘Patient Summary’ on the right hand side menu
+  Then     Check that the following exist
    Examples:
       | patientName    |
-      | moses2 mutesa2| 
+      | moses2 mutesa2 | 
