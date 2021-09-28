@@ -27,7 +27,10 @@ public class RunTest {
 		public static final String DELETEPATIENT = "@deletePatient";
 
 		public static final String USERMANAGEMENT = "@userManagement";
-		
+
 		public static final String PATIENT_SUMMARY = "@patientSummary";
+
+		public static final String CONSULTATION = "@consultation";
+
 	}
 }
