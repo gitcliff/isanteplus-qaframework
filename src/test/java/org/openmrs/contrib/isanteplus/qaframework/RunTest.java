@@ -32,5 +32,8 @@ public class RunTest {
 		
 		public static final String PATIENT_SUMMARY = "@patientCoverSheet";
 
+		public static final String USERMANAGEMENT = "@userManagement";
+
+		public static final String CONSULTATION = "@consultation";
 	}
 }
