@@ -61,7 +61,7 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public String getPageUrl() {
 		return URL_PATH;
 	}
-	
+		
 	public Boolean hasVistActionsColumn() {
 		return hasElement(COLUMN_VIST_ACTIONS);
 	}

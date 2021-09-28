@@ -26,6 +26,12 @@ public class RunTest {
 		
 		public static final String DELETEPATIENT = "@deletePatient";
 
+		public static final String ADDUSER = "@addUser";
+		
+		public static final String SEARCHUSER = "@searchUser";
+		
+		public static final String PATIENT_SUMMARY = "@patientCoverSheet";
+
 		public static final String USERMANAGEMENT = "@userManagement";
 
 		public static final String CONSULTATION = "@consultation";
