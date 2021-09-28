@@ -9,4 +9,4 @@ Feature: Patient Summary
   Then  Selected patient’s ‘Cover Sheet’ will be displayed with the following
    Examples:
       | patientName    |
-      | sharif shamirah|  
+      | moses2 mutesa2|  
