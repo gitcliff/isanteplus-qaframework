@@ -25,12 +25,12 @@ public class PatientCoverSheetSteps extends TestBase {
 	
 	private HomePage homePage;
 	
-	@Before(RunTest.HOOK.PATIENT_SUMMARY)
+	@Before(RunTest.HOOK.PATIENT_COVER_SHEET)
 	public void setUp() {
 		loginPage = new LoginPage(getWebDriver());
 	}
 	
-	@After(RunTest.HOOK.PATIENT_SUMMARY)
+	@After(RunTest.HOOK.PATIENT_COVER_SHEET)
 	public void destroy() {
 		quit();
 	}
