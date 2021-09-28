@@ -48,7 +48,7 @@ public class PatientCoverSheetSteps extends TestBase {
 		clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 	
-	@Then("Selected patient’s ‘Cover Sheet’ will be displayed with the following")
+	@Then("Selected patient’s ‘Cover Sheet’ will be displayed with all the right details")
 	public void loadPatientDashboardPage() {
 		assertTrue(clinicianFacingPatientDashboardPage.containsText("DIAGNOSTICS"));
 		assertTrue(clinicianFacingPatientDashboardPage.containsText("Signes vitaux"));

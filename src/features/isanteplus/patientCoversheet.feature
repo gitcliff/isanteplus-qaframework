@@ -5,8 +5,8 @@ Feature: Patient Summary
 
   @patientCoverSheet
   Scenario: Patient Cover sheet
-  When Search for and select Patient "<patientName>"
-  Then  Selected patient’s ‘Cover Sheet’ will be displayed with the following
+  When   Search for and select Patient "<patientName>"
+  Then   Selected patient’s ‘Cover Sheet’ will be displayed with all the right details
    Examples:
       | patientName    |
       | moses2 mutesa2|  
