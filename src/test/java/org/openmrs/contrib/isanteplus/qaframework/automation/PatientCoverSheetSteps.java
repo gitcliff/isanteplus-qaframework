@@ -45,7 +45,6 @@ public class PatientCoverSheetSteps extends TestBase {
 	public void searchForPatientAndloadDashboardPage(String patientName) throws Exception {
 		findPatientPage = homePage.clickOnSearchPatientRecord();
 		findPatientPage.enterPatientName(patientName);
-		System.out.println(".....Patient Cover sheet......");
 		clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 	
