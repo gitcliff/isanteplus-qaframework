@@ -1,4 +1,4 @@
-Feature: Patient Summary
+Feature: Patient Cover sheet
 
  Background:
     Given system user logs into Isanteplus application and goes to the Home page
