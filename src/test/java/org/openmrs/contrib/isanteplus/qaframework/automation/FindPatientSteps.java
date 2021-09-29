@@ -32,18 +32,19 @@ public class FindPatientSteps extends TestBase {
 	
 	String patientIdetifier;
 	
-	@Before(RunTest.HOOK.FINDPATIENT)
+	@Before(RunTest.HOOK.FIND_PATIENT)
 	public void setUp() {
 		loginPage = new LoginPage(getWebDriver());
 	}
 	
-	@After(RunTest.HOOK.FINDPATIENT)
+	@After(RunTest.HOOK.FIND_PATIENT)
 	public void destroy() {
 		quit();
 	}
 	
 	@Given("User logs in the system")
 	public void userVisitLoginPage() throws Exception {
+		System.out.println(".... Patient Search......");
 		homePage = loginPage.goToHomePage();
 	}
 	

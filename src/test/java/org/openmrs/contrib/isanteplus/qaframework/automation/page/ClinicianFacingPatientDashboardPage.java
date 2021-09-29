@@ -11,7 +11,12 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	private static final By SHOW_CONTACT_INFO = By.id("patient-header-contactInfo");
 	
 	private static final By EDIT_CONTACT_INFO = By.id("contact-info-inline-edit");
-	
+
+	private static final By CONSULTATION = By.xpath("/html/body/div[1]/div[3]/div[8]/div/div[3]/div/ul/li[1]/a");
+
+	private static final By CONFIRM = By.xpath("/html/body/div[5]/div/div/div[2]/button[1]");
+
+
 	private static final By EDIT_PATIENT = By.cssSelector("#edit-patient-demographics a");
 	
 	private static final By RECENT_VISITS = By.cssSelector("visitbyencountertype > ul > li:nth-child(1) > a");
@@ -56,9 +61,23 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public String getPageUrl() {
 		return URL_PATH;
 	}
-	
+		
 	public Boolean hasVistActionsColumn() {
 		return hasElement(COLUMN_VIST_ACTIONS);
+	}
+	
+	public PatientSummaryPage clickOnPatientSummary() {
+		clickOn(PATIENT_SUMMARY);
+		return new PatientSummaryPage(this);
+	}
+
+	public void clickStartConsultation() {
+		clickOn(CONSULTATION);
+	}
+
+	public PatientDashBoardPage clickConfirm() {
+		clickOn(CONFIRM);
+		 return new PatientDashBoardPage(this);
 	}
 	
 	private String trimPatientId(String id) {

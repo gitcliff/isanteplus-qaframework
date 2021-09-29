@@ -2,7 +2,7 @@
 ## Isanteplus Automated Testing Framework.
 This is the Isanteplus Automated testing Framework thats integrates both BDD with Cucumber and Fuctional Testing with Selenium using the Page Object Model design for high Maintainability ,Readability and Re-usability
 
-[![ISANTEPLUS QA](https://github.com/IsantePlus/isanteplus-qaframework/actions/workflows/qa.yml/badge.svg)](https://github.com/IsantePlus/isanteplus-qaframework/actions/workflows/qa.yml)
+[![ISANTEPLUS QA](https://github.com/IsantePlus/isanteplus-qaframework/actions/workflows/qa-local.yml/badge.svg)](https://github.com/IsantePlus/isanteplus-qaframework/actions/workflows/qa-local.yml)
 
 ## Installing dependencies 
 
@@ -30,13 +30,20 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
  See All test features bellow with their coresponding filter tags      
 
 
-| Test Feature        |Filter Tag     |
-|:------------------: |:-------------:|
-| Login               | @login        | 
-| Adding a Patient    | @register     |
-| search for a patient| @findPatient  |
-| Changing Password   | @password     |
-| delete patient      | @delete patient |
-|  Reports            | @reports      |  
+
+
+| Test Feature        |Filter Tag      |
+|:------------------: |:-------------: |
+| Login               | @login         | 
+| Adding a Patient    | @register      |
+| search for a patient| @findPatient   |
+| Changing Password   | @password      |
+| delete patient      | @deletepatient |
+| user management     | @userManagement|
+| Patient summary     | @patientSummary|
+| consultation        | @consultation  |
+| Patient Coversheet  | @patientCoverSheet|
+|  Reports            | @reports       |  
+
 
        

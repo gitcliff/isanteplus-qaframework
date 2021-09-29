@@ -71,8 +71,8 @@ public class LoginPage extends Page {
 		clickLoginButton();
 		return new HomePage(this);
 	}
-
-	public HomePage goToHomePage(String userName ,String password) {
+	
+	public HomePage goToHomePage(String userName, String password) {
 		go();
 		enterUsername(userName);
 		enterPassword(password);
