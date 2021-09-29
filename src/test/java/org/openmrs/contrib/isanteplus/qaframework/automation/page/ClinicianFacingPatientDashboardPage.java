@@ -16,6 +16,11 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 
 	private static final By CONFIRM = By.xpath("/html/body/div[5]/div/div/div[2]/button[1]");
 
+	private static final By PREVIOUS_CONSULTATION = By.id("org.openmrs.module.coreapps.createRetrospectiveVisit");
+
+	private static final By CONFIRM_PREVIOUS_CONSULTATION = By.xpath("/html/body/div[5]/div/div/div[2]/button[2]");
+
+	private static final By DATE_PREVIOUS_CONSULTATION = By.xpath("/html/body/div[2]/div[3]/table/tbody/tr[1]/td[1]");
 
 	private static final By EDIT_PATIENT = By.cssSelector("#edit-patient-demographics a");
 	
@@ -41,7 +46,7 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	
 	private static final By VIRAL_LOAD_HISTORY = By.id("isanteplus.viralLoadHistory");
 	
-	private static final By PATIENT_SUMMARY = By.id("isanteplusreports.patientSummary");
+	private static final By NEW_PATIENT_SUMMARY = By.id("isanteplusreports.patientSummary");
 	
 	private static final By DIAGNOSIS_HISTORY = By.id("isanteplus.diagnosis.label");
 	
@@ -67,7 +72,7 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	}
 	
 	public PatientSummaryPage clickOnPatientSummary() {
-		clickOn(PATIENT_SUMMARY);
+		clickOn(NEW_PATIENT_SUMMARY);
 		return new PatientSummaryPage(this);
 	}
 
@@ -97,5 +102,18 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	
 	public String getPatientNames() {
 		return getText(PATIENT_NAME_HEADER);
+	}
+
+	public void selectDatesForPreviousConsultation() {
+		clickOn(DATE_PREVIOUS_CONSULTATION);
+	}
+
+	public void clickAddPreviousConsultation() {
+		clickOn(PREVIOUS_CONSULTATION);
+	}
+
+	public PatientDashBoardPage clickConfirmPreviousConsultation() {
+		clickOn(CONFIRM_PREVIOUS_CONSULTATION);
+		return new PatientDashBoardPage(this);
 	}
 }
