@@ -53,6 +53,8 @@ public class HomePage extends Page {
 	private final By APP_SYSTEM_ADMIN = By
 	        .id("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension");
 	
+	private final By REPORTS_MANAGEMENT = By.cssSelector("#reportingui-reports-homepagelink-reportingui-reports-homepagelink-extension");
+	
 	public HomePage(Page page) {
 		super(page);
 	}
@@ -102,6 +104,11 @@ public class HomePage extends Page {
 		setText(FIELD_CONFIRM_PASSWORD, confirmPassword);
 	}
 	
+	public ReportsPage clickOnReportsApp() {
+		clickOn(REPORTS_MANAGEMENT);
+		return new ReportsPage(this);
+		
+	}
 	public String savePassword() {
 		clickOn(SAVE_BUTTON);
 		return "index.html";
