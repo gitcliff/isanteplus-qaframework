@@ -70,5 +70,4 @@ public class ReportSteps extends TestBase {
 	public void systemReturnsAvailableDownload() {
 		runReportPage.containsText("Disponible pour téléchargement");
 	}
-	
 }
