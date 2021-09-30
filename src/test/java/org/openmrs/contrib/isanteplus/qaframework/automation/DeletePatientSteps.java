@@ -50,8 +50,9 @@ public class DeletePatientSteps extends TestBase {
 	}
 	
 	@And("User searches for a patient {string} patientName and load their cover page")
-	public void userSearchForPatient(String Reason) {
-		findPatientPage.enterPatientName(Reason);
+	public void userSearchForPatient(String name) throws Exception {
+		findPatientPage.enterPatientName(name);
+		Thread.sleep(2000);
 		findPatientPage.getFirstPatientIdentifier();
 		findPatientPage.clickOnFirstPatient();
 	}
