@@ -44,6 +44,6 @@ This is the Isanteplus Automated testing Framework thats integrates both BDD wit
 | consultation        | @consultation  |
 | Patient Coversheet  | @patientCoverSheet|
 |  Reports            | @reports       |  
-
+| Patient Merge       | @patientMerge  |
 
        
