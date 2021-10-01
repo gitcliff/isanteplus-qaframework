@@ -58,6 +58,12 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	
 	protected By PATIENT_NAME_HEADER = By.xpath("//*[@id='breadcrumbs']/li[2]");
 	
+	private static final By START_CONSULTATION = By.cssSelector("#content > div.container > div > div.action-container.column > div > ul > h3");
+
+	private static final By START_CONFIRM_BUTTON = By.cssSelector("#start-visit-with-visittype-confirm > font > font");
+	
+	private static final By ACTIVE_VISITS = By.cssSelector("#coreapps-fr6425 > div.info-body > visitbyencountertype > ul > li:nth-child(1) > a");
+
 	public ClinicianFacingPatientDashboardPage(Page parent) {
 		super(parent);
 	}
@@ -114,6 +120,25 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 
 	public PatientDashBoardPage clickConfirmPreviousConsultation() {
 		clickOn(CONFIRM_PREVIOUS_CONSULTATION);
+		return new PatientDashBoardPage(this);
+	}
+	
+	public void ClickOnStartConsultation() {
+		clickOn(START_CONSULTATION);
+	}
+
+	public ConsultationPage clickOnConfirmButton() {
+		waitForElement(START_CONFIRM_BUTTON);
+		clickOn(START_CONFIRM_BUTTON);
+		return new ConsultationPage(this);
+	}
+	
+	public Boolean hasRecentVisits() {
+		return hasElement(ACTIVE_VISITS);
+	}
+	
+	public PatientDashBoardPage clickOnRecentVisit() {
+		clickOn(RECENT_VISITS);
 		return new PatientDashBoardPage(this);
 	}
 }

@@ -37,6 +37,7 @@ public class ReportSteps extends TestBase {
 	
 	@Given("User loads HomePage")
 	public void visitLoginPage() throws Exception {
+		System.out.println(".... Reports......");
 		homePage = loginPage.goToHomePage();
 	}
 	
