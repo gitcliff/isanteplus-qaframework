@@ -41,6 +41,8 @@ public class RunTest {
 		public static final String PATIENT_SUMMARY = "@patientSummary";
 
 		public static final String CONSULTATION = "@consultation";
+		
+		public static final String PATIENT_MERGE = "@patientMerge";
 
 	}
 }

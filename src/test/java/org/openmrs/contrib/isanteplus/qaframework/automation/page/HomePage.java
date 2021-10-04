@@ -109,6 +109,12 @@ public class HomePage extends Page {
 		return new ReportsPage(this);
 		
 	}
+	
+	public DataManagementPage clickOnDataManagementPage() {
+		clickOn(DATA_MANAGEMENT);
+		return new DataManagementPage(this);
+	}
+	
 	public String savePassword() {
 		clickOn(SAVE_BUTTON);
 		return "index.html";
