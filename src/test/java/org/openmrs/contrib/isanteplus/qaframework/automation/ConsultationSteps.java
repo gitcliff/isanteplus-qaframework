@@ -35,7 +35,7 @@ public class ConsultationSteps extends TestBase {
 
     @Before(RunTest.HOOK.CONSULTATION)
     public void setUp() {
-        System.out.println(".... consultation ......");
+        System.out.println("....consultation......");
         loginPage = new LoginPage(getWebDriver());
     }
 
@@ -59,14 +59,13 @@ public class ConsultationSteps extends TestBase {
 
     @And("Click ‘Demarrer Consultation’ under “Actions générales” menu on the right")
     public void clickStartConsulation() throws Exception {
-        clinicianFacingPatientDashboardPage.clickStartConsultation();
+    	 patientDashBoardPage  = clinicianFacingPatientDashboardPage.clickOnRecentVisit();
     }
 
     @And("Click ‘Confirmer’")
     public void clickConfirmer() throws Exception {
-        patientDashBoardPage = clinicianFacingPatientDashboardPage.clickConfirm();
         Thread.sleep(5000);
-    }
+   }
 
     @Then("User is redirected to the Forms tab where new forms can be added and a list of history of forms is displayed")
     public void redirectedToForms() throws Exception {

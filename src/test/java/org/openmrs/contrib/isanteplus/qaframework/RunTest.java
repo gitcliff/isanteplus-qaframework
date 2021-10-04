@@ -42,6 +42,8 @@ public class RunTest {
 
 		public static final String CONSULTATION = "@consultation";
 		
+		public static final String CHECK_FORMS    = "@checkForms";
+
 		public static final String PATIENT_MERGE = "@patientMerge";
 
 	}
