@@ -20,3 +20,5 @@ Feature: Adding a Patient
     |firstName |lastName |gender | age|stCode  |nationalId| address|
     |moses     |mutesa   |Male   | 20 |STCODE1 |HAIT123  | haiti   |
     |moses2    |mutesa2  |Male   | 5  |STCODE2 |HAIT100  | haiti   |
+    |sharif    |sharif1  |Male   |10  |STCODE3 |HAITI101 |haiti    |
+    |sharif2   |sharif2  |Male   |12  |STCODE4 |HAITI102 |haiti    |

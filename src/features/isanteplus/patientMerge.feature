@@ -15,5 +15,5 @@ And  User Click ‘Yes, continue’
 Then Patient’s cover page with the data for the selected record is loaded
  Examples:
       | firstPatientId |secondPatientId |
-      | sharif         | sharif1        |
-      | mutesa         | mutesa1        |
+      | 10003P         | 10009A         |
+      | moses          | moses2         |
