@@ -59,15 +59,11 @@ public class ConsultationSteps extends TestBase {
 
     @And("Click ‘Demarrer Consultation’ under “Actions générales” menu on the right")
     public void clickStartConsulation() throws Exception {
-//    	if (clinicianFacingPatientDashboardPage.hasRecentVisits() != null) {
     	 patientDashBoardPage  = clinicianFacingPatientDashboardPage.clickOnRecentVisit();
-//    	}
-//    	clinicianFacingPatientDashboardPage.clickStartConsultation();
     }
 
     @And("Click ‘Confirmer’")
     public void clickConfirmer() throws Exception {
-//        patientDashBoardPage = clinicianFacingPatientDashboardPage.clickConfirm();
         Thread.sleep(5000);
    }
 
