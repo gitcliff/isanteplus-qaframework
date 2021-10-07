@@ -3,9 +3,7 @@ package org.openmrs.contrib.isanteplus.qaframework.automation.page;
 import org.openqa.selenium.By;
 
 public class SystemAdministrationPage extends Page {
-	
-	private ManageAccountsPage manageAccountsPage;
-	
+		
 	private static final String SYSTEM_ADMIN = "/systemadministration/systemAdministration.page";
 	
 	private final By APP_MANAGE_ACCOUNTS = By.id("org-openmrs-module-adminui-accounts-app");

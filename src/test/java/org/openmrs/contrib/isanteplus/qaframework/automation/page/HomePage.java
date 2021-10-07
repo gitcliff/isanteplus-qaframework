@@ -29,23 +29,9 @@ public class HomePage extends Page {
 	
 	private static final By FIND_PATIENT_RECORD = By
 	        .id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension");
-	
-	private static final By ACTIVE_VISITS_APP_ID = By.id(
-	    "org-openmrs-module-coreapps-activeVisitsHomepageLink-org-openmrs-module-coreapps-activeVisitsHomepageLink-extension");
-	
-	private static final By ATOM_FEED_APP_ID = By.id("atomfeed-homepage-atomfeed-homepage-extension");
-	
-	private static final By REPORT_APP_ID = By
-	        .id("reportingui-reports-homepagelink-reportingui-reports-homepagelink-extension");
-	
+		
 	private static final By DATA_MANAGEMENT = By
 	        .cssSelector("#coreapps-datamanagement-homepageLink-coreapps-datamanagement-homepageLink-extension");
-	
-	private static final By CONFIGURE_METADATA = By.cssSelector(
-	    "#org-openmrs-module-adminui-configuremetadata-homepageLink-org-openmrs-module-adminui-configuremetadata-homepageLink-extension");
-	
-	private static final By SYSTEM_ADMINISTRATION = By
-	        .cssSelector("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension");
 	
 	private final By APP_REGISTER_PATIENT = By.id(
 	    "referenceapplication-registrationapp-registerPatient-homepageLink-referenceapplication-registrationapp-registerPatient-homepageLink-extension");
@@ -74,7 +60,6 @@ public class HomePage extends Page {
 	
 	public void clickLogout() {
 		goToPage("appui/header/logout.action?successUrl=openmrs");
-		//clickOn(LINK_LOGOUT);
 	}
 	
 	public RegisterPatientPage clickRegisterPatientApp() {
