@@ -10,7 +10,6 @@ public class ConsultationPage extends Page {
 
 	@Override
 	public String getPageUrl() {
-
 		return "/coreapps/patientdashboard/patientDashboard.page";
 	}
 
