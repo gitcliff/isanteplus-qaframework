@@ -110,7 +110,7 @@ public class FormSteps extends TestBase {
     @And("A prompt that the form was saved successfully is displayed and the user is redirected to the forms tab")
     public void saveMessage() throws Exception {
         Thread.sleep(9000);
-        assertTrue(patientDashBoardPage.containsText("Entré Analyse de Laboratoire pour Mutesa MOses"));
+        assertTrue(patientDashBoardPage.containsText("Entré Analyse de Laboratoire pour sharif2"));
     }
 
     @Then("The form should be listed under Historique des formulaires")
@@ -146,7 +146,7 @@ public class FormSteps extends TestBase {
     @Then("The form is saved and user redirected to the forms tab")
     public void formIsSaved() throws Exception {
         Thread.sleep(23000);
-        assertTrue(patientDashBoardPage.containsText("Modifié Analyse de Laboratoire pour Mutesa MOses"));
+        assertTrue(patientDashBoardPage.containsText("Modifié Analyse de Laboratoire pour sharif2"));
         assertTrue(patientDashBoardPage.containsText("Analyse de Laboratoire"));
     }
 
